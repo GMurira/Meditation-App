@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MediationApplication</string>
+    <string name="text">Sad</string>
+    <string name="text2">Good</string>
+    <string name="text3">Sombre</string>
+    <string name="text4">Remorseful</string>
+</resources>
