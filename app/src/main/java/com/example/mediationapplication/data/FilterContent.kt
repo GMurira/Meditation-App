@@ -6,13 +6,19 @@ import com.example.mediationapplication.R
 
 data class FilterComponent(
     val color: Color,
-    val filterText: Int
+    val filterText: String
 )
 val FILTER_CONTENT_LIST = listOf(
-    FilterComponent(Color.White, R.string.text2),
-    FilterComponent(Color.Green, R.string.text),
-    FilterComponent(Color.Yellow, R.string.text3),
-    FilterComponent(Color.Magenta, R.string.text4)
+    FilterComponent(Color.White, "Happy"),
+    FilterComponent(Color.Green, "Chilled"),
+    FilterComponent(Color.Yellow, "Sombre"),
+    FilterComponent(Color.Magenta, "Meditate"),
+    FilterComponent(Color.Magenta, "Meditate"),
+    FilterComponent(Color.Magenta, "Meditate"),
+    FilterComponent(Color.Magenta, "Meditate"),
+    FilterComponent(Color.Magenta, "Jeffer"),
+    FilterComponent(Color.Magenta, "Just Vibes"),
+    FilterComponent(Color.Magenta, "Meditate"),
 )
 
 /**
@@ -54,5 +60,77 @@ val MEDIATION_TYPE_LIST = listOf(
         teacher = "Kate London",
         title = "Flower mediation",
         description = "Outdoor concentration mediation, the object is a flower"
+    ),
+    MediationType(
+        duration = "45 mins",
+        teacher = "James Madchen",
+        title = "Love-Kind mediation",
+        description = "During Love kindness, you focus benevolent and loving energy towards yourself and others"
+    ),
+    MediationType(
+        duration = "34 mins",
+        teacher = "Kate London",
+        title = "Flower mediation",
+        description = "Outdoor concentration mediation, the object is a flower"
+    ),
+    MediationType(
+        duration = "64 mins",
+        teacher = "Henry Kissinger",
+        title = "Anger Managment",
+        description = "Learn to act within your bounds"
+    ),
+    MediationType(
+        duration = "45 mins",
+        teacher = "James Madchen",
+        title = "Love-Kind mediation",
+        description = "During Love kindness, you focus benevolent and loving energy towards yourself and others"
+    ),
+    MediationType(
+        duration = "34 mins",
+        teacher = "Kate London",
+        title = "Flower mediation",
+        description = "Outdoor concentration mediation, the object is a flower"
+    ),
+    MediationType(
+        duration = "64 mins",
+        teacher = "Henry Kissinger",
+        title = "Anger Managment",
+        description = "Learn to act within your bounds"
+    ),
+    MediationType(
+        duration = "45 mins",
+        teacher = "James Madchen",
+        title = "Love-Kind mediation",
+        description = "During Love kindness, you focus benevolent and loving energy towards yourself and others"
+    ),
+    MediationType(
+        duration = "34 mins",
+        teacher = "Kate London",
+        title = "Flower mediation",
+        description = "Outdoor concentration mediation, the object is a flower"
+    ),
+    MediationType(
+        duration = "64 mins",
+        teacher = "Henry Kissinger",
+        title = "Anger Managment",
+        description = "Learn to act within your bounds"
+    ),
+    MediationType(
+        duration = "45 mins",
+        teacher = "James Madchen",
+        title = "Love-Kind mediation",
+        description = "During Love kindness, you focus benevolent and loving energy towards yourself and others"
+    ),
+    MediationType(
+        duration = "34 mins",
+        teacher = "Kate London",
+        title = "Flower mediation",
+        description = "Outdoor concentration mediation, the object is a flower"
+    ),
+    MediationType(
+        duration = "64 mins",
+        teacher = "Henry Kissinger",
+        title = "Anger Managment",
+        description = "Learn to act within your bounds"
     ),
 )

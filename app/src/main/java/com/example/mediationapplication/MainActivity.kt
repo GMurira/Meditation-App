@@ -9,10 +9,12 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -115,7 +117,7 @@ class MainActivity : ComponentActivity() {
         OutlinedTextField(
             value = "",
             onValueChange = {},
-            shape = RoundedCornerShape(8.dp),
+            shape = RoundedCornerShape(10.dp),
             placeholder = { Text(text = "Search", fontFamily = FontFamily.Cursive)},
             leadingIcon = {
                 Icon(imageVector = Icons.Default.Search, contentDescription = "Search Icn")
@@ -141,7 +143,7 @@ class MainActivity : ComponentActivity() {
     fun FilterOptionsComponent(){
         val filterOptions = FILTER_CONTENT_LIST
         LazyRow(
-            modifier = Modifier.padding(top = 15.dp, start = 15.dp),
+            modifier = Modifier.padding(top = 15.dp, start = 15.dp, end = 15.dp),
             horizontalArrangement = Arrangement.SpaceBetween
         ){
             items(filterOptions.size){
@@ -151,28 +153,30 @@ class MainActivity : ComponentActivity() {
     }
 
     @Composable
-    fun ChipComponent(filter: FilterComponent){
-
-        val contentColor = filter.color
-        val filterText = filter.filterText
+    fun ChipComponent(
+        filter: FilterComponent
+    ) {
 
        Chip(
+           modifier = Modifier
+               .padding(start = 10.dp, top = 10.dp, end = 10.dp),
            onClick = { /*TODO*/ },
            colors = ChipDefaults.chipColors(
                contentColor = Color.White,
-               backgroundColor = Color.Black
+               backgroundColor = Color.Yellow
            ),
            border = ChipDefaults.chipBorder(),
            shape = RoundedCornerShape(15.dp)
        ) {
-
+           Text(text = filter.filterText)
        }
  }
     @Composable
     fun MeditationTypesComponent(){
         val meditationOptions = MEDIATION_TYPE_LIST
-    LazyRow(
-        modifier = Modifier.padding(15.dp)
+    LazyColumn(
+        modifier = Modifier.padding(10.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
     ){
         items(meditationOptions.size){
             MeditationOptionsComponent(meditationTypes = meditationOptions[it])
@@ -186,7 +190,7 @@ class MainActivity : ComponentActivity() {
     {
         Card(
             shape = RoundedCornerShape(14.dp),
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier.fillMaxSize().padding(10.dp)
         ) {
             Column(
                 verticalArrangement = Arrangement.SpaceEvenly,
@@ -194,9 +198,11 @@ class MainActivity : ComponentActivity() {
                 modifier = Modifier.padding(20.dp)
             ){
                 Row (
-                    horizontalArrangement = Arrangement.SpaceEvenly
+                    modifier = Modifier.padding(start = 10.dp,end = 10.dp),
+                    horizontalArrangement = Arrangement.Start
                 ){
-                    Chip(onClick = { /*TODO*/ }, colors = ChipDefaults.chipColors(
+                    Chip(
+                        onClick = { /*TODO*/ }, colors = ChipDefaults.chipColors(
                         contentColor = Color.Black,
                         backgroundColor = Color.White
                         )
@@ -205,6 +211,7 @@ class MainActivity : ComponentActivity() {
                     ) {
                         Text(text = meditationTypes.duration)
                     }
+                    Spacer(modifier = Modifier.weight(1f))
                     Chip(onClick = { /*TODO*/ }, colors = ChipDefaults.chipColors(
                         contentColor = Color.White,
                         backgroundColor = Color.Black
