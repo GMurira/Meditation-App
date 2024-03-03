@@ -66,6 +66,7 @@ class MainActivity : ComponentActivity() {
                ){
                    HeaderProfileComponent()
                    SearchInputComponent()
+                   MeditationTypesComponent()
                }
             }
         }
@@ -169,14 +170,15 @@ class MainActivity : ComponentActivity() {
         modifier = Modifier.padding(15.dp)
     ){
         items(meditationOptions.size){
-
+            MeditationOptionsComponent(meditationTypes = meditationOptions[it])
         }
     }
     }
     @Composable
-    fun MeditationTypeComponent(
-        meditationTypes: MediationType){
-        
+    fun MeditationOptionsComponent(
+        meditationTypes: MediationType
+    )
+    {
         Card(
             shape = RoundedCornerShape(14.dp),
             modifier = Modifier.fillMaxSize()
@@ -186,17 +188,45 @@ class MainActivity : ComponentActivity() {
                 horizontalAlignment = Alignment.Start,
                 modifier = Modifier.padding(20.dp)
             ){
-                Row (horizontalArrangement = Arrangement.SpaceEvenly){
+                Row (
+                    horizontalArrangement = Arrangement.SpaceEvenly
+                ){
                     Chip(onClick = { /*TODO*/ }, colors = ChipDefaults.chipColors(
                         contentColor = Color.Black,
                         backgroundColor = Color.White
                         )
-                        , border =
+                        , border = ChipDefaults.chipBorder(),
+                        shape = RoundedCornerShape(15.dp)
                     ) {
-                        Text(text = )
+                        Text(text = meditationTypes.duration)
                     }
+                    Chip(onClick = { /*TODO*/ }, colors = ChipDefaults.chipColors(
+                        contentColor = Color.White,
+                        backgroundColor = Color.Black
+                    )
+                        , border = ChipDefaults.chipBorder(),
+                        shape = RoundedCornerShape(15.dp)
+                    ) {
+                        Text(text = meditationTypes.duration)
+                    }
+
                 }
+                Text(
+                    text = meditationTypes.title,
+                    fontSize = 18.sp,
+                    textAlign = TextAlign.Start
+                )
+                Text(
+                    text = meditationTypes.description,
+                    fontSize = 15.sp,
+                    textAlign = TextAlign.Start
+                    )
             }
         }
     }
+}
+@Preview(showBackground = true)
+@Composable
+fun MediationAppPreview(){
+
 }
