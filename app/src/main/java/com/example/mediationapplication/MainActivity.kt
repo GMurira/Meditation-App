@@ -66,6 +66,7 @@ class MainActivity : ComponentActivity() {
                ){
                    HeaderProfileComponent()
                    SearchInputComponent()
+                   FilterOptionsComponent()
                    MeditationTypesComponent()
                }
             }
@@ -144,25 +145,29 @@ class MainActivity : ComponentActivity() {
             horizontalArrangement = Arrangement.SpaceBetween
         ){
             items(filterOptions.size){
-
+                ChipComponent(filter = filterOptions[it])
             }
         }
     }
 
-//    @Composable
-//    fun ChipComponent(filter: FilterComponent){
-//
-//        val contentColor = filter.color
-//        val filterText = filter.filterText
-//
-//       Chip(
-//           onClick = { /*TODO*/ },
-//           colors =,
-//           border =
-//       ) {
-//
-//       }
-//    }
+    @Composable
+    fun ChipComponent(filter: FilterComponent){
+
+        val contentColor = filter.color
+        val filterText = filter.filterText
+
+       Chip(
+           onClick = { /*TODO*/ },
+           colors = ChipDefaults.chipColors(
+               contentColor = Color.White,
+               backgroundColor = Color.Black
+           ),
+           border = ChipDefaults.chipBorder(),
+           shape = RoundedCornerShape(15.dp)
+       ) {
+
+       }
+ }
     @Composable
     fun MeditationTypesComponent(){
         val meditationOptions = MEDIATION_TYPE_LIST
